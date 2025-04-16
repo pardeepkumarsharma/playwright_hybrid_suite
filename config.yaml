@@ -1,0 +1,8 @@
+browser: chromium
+env: dev
+dev:
+  url: "dev.com"
+stag:
+  url: "stag.com"
+prod:
+  url: "prod.com"
