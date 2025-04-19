@@ -10,14 +10,14 @@ class Logger:
     LOG_DIR = "logs"
 
     @staticmethod
-    def create_logger(name: str) -> logging.Logger:
+    def create_logger() -> logging.Logger:
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         if not os.path.exists(current_dir):
             os.makedirs(current_dir)
         log_filename = os.path.join(current_dir, Logger.LOG_DIR, f"test_log_{timestamp}.log")
 
-        logger = logging.getLogger(name)
+        logger = logging.getLogger(__name__)
         logger.setLevel(logging.DEBUG)
 
         # Prevent adding multiple handlers

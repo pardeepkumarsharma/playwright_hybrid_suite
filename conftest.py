@@ -1,8 +1,26 @@
+import playwright
 import pytest
 import os
 from datetime import datetime
 
 import pytest_html
+from playwright.sync_api import Playwright
+from utils.config_reader import Config_Reader
+
+config = Config_Reader()
+
+
+@pytest.fixture(scope="session")
+def launch(playwright:Playwright):
+    browser_name=config.get("browser")
+    browser= getattr(playwright,browser_name).launch(headless=config.get("headless"))
+    #chromium = playwright.chromium
+    #browser = chromium.launch(headless=False)
+    user_context = browser.new_context()
+    page = user_context.new_page()
+    yield page
+    user_context.close()
+    page.close()
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)

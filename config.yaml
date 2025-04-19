@@ -1,8 +1,16 @@
 browser: chromium
+headless : false
+html_report_path : reports/app.html
 env: dev
 dev:
-  url: "dev.com"
+  url: https://www.automationexercise.com/
+  username : testing_playwright@testing.com
+  password : testing_playwright@testing.com
 stag:
   url: "stag.com"
+  username:
+  password:
 prod:
   url: "prod.com"
+  username:
+  password:
