@@ -1,4 +1,6 @@
+import os
 import time
+from datetime import datetime
 
 from pages.common_methods import Common_Methods
 from pages.locators import *
@@ -15,6 +17,6 @@ class Login_Page(Common_Methods):
         self.click(login_link)
         self.type(username,self.config.get("username"))
         self.type(password,self.config.get("password"))
-        self.browser.screenshot(path="reports/1.png")
+        self.capture_screenshot()
         self.click(login_button)
 

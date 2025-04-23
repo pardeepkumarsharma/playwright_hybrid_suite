@@ -23,7 +23,7 @@ class Logger:
         # Prevent adding multiple handlers
         if not logger.handlers:
             # File handler with rotation
-            file_handler = RotatingFileHandler(log_filename, maxBytes=5 * 1024 * 1024, backupCount=5)
+            file_handler = RotatingFileHandler(log_filename, maxBytes=0.01 * 1024 * 1024, backupCount=5)
             file_formatter = logging.Formatter(
                 "%(asctime)s | %(name)s | %(levelname)s | %(message)s", datefmt="%Y-%m-%d %H:%M:%S"
             )

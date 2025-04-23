@@ -1,6 +1,6 @@
 browser: chromium
 headless : false
-html_report_path : reports/app.html
+screenshot_path : reports/screenshot
 env: dev
 dev:
   url: https://www.automationexercise.com/
